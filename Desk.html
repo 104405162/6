@@ -1,0 +1,473 @@
+<html>
+
+<head>
+    <!-- 讓 mobile/tablet 等比例呈現網頁資訊-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *::selection {
+            background-color: rgba(165, 118, 76, 0.5);
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Microsoft JhengHei, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Lucida Grande, Lucida Sans Unicode, sans-serif;
+            background-color: #831d1d;
+        }
+
+        
+        .position-fixed-top-left-50px {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: fixed;
+            top: 50px;
+            left: 30px;
+        }
+
+        h1.title {
+            display: block;
+            font-size: 34px;
+            font-weight: bold;
+            line-height: 1.35;
+            color: rgb(248, 244, 244);
+        }
+
+        .footer {
+            width: 100%;
+            display: flex;
+            background-color: #E01921;
+            position: relative;
+
+        }
+
+        .grey-bar {
+            height: 25.97vw;
+            width: 0.34vw;
+            margin-left: 11.66vw;
+            margin-top: 4.02vw;
+            background-color: #C4C4C4
+        }
+
+        span {
+            display: inline;
+        }
+
+        h2.subtitle {
+            font-size: 20px;
+            line-height: 1.35;
+            color: #404040;
+        }
+
+        h3 {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .text-block {
+            width: 720px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+
+        .horizontal-center {
+            margin: 0 auto;
+        }
+
+        .intro {
+            font-size: 22px;
+            line-height: 2.5;
+            color: #494949;
+            margin-top: 45px;
+        }
+
+
+        Î .intro-line {
+            border-color: #c71B0a;
+            width: 158px;
+            border-width: 1px 0 0 0;
+            border-style: solid;
+            margin: 40px auto;
+        }
+
+        figure {
+            margin: 60px auto;
+            width: 100%;
+            max-width: 1080px;
+        }
+
+        figure.half {
+            display: inline-block;
+            width: 48%;
+        }
+
+        figcaption {
+            color: #404040;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+
+        .multimedia-block {
+            width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .align-right {
+            width: 450px;
+            float: right;
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+
+        @media all and (max-width: 768px) {
+            h1.title {
+                font-size: 28px;
+                width: 95%;
+            }
+
+            h2.subtitle {
+                font-size: 20px;
+                width: 95%;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            .text-block {
+                width: 95%;
+            }
+
+            .intro {
+                font-size: 20px;
+                width: 95%;
+            }
+
+            .paragraph {
+                font-size: 16px;
+                width: 95%;
+            }
+
+            figcaption {
+                font-size: 14px;
+                width: 95%;
+                margin: 15px auto 0 auto;
+            }
+
+            figure {
+                width: 100%;
+            }
+
+            figure.half {
+                display: block;
+                width: 100%;
+            }
+
+            .align-right {
+                width: 100%;
+                float: none;
+                margin-left: 0px;
+            }
+
+            .multimedia-block {
+                width: 100%;
+            }
+        }
+
+        @media all and (min-width: 768px) and (max-width: 1024px) {
+            .align-right {
+                width: 100%;
+                float: none;
+                margin-left: 0px;
+            }
+
+            .multimedia-block {
+                width: 100%;
+            }
+
+            figure.half {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .related-block {
+            border-top: 0.5px solid #E77B3D;
+            width: 90%;
+            max-width: 1440px;
+            margin: 70px auto;
+        }
+
+        .related-text {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 30px;
+        }
+
+        .card-flex-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-img {
+            width: 100%;
+            margin: 0;
+            margin-top: 50px;
+            transition: 0.3s;
+        }
+
+        .card-img:hover {
+            margin-top: 0px;
+
+        }
+
+        .card {
+            background-color: #E77B3D;
+            width: 360px;
+            padding: 20px 12px 25px 12px;
+            margin-right: 40px;
+            margin-bottom: 76px;
+        }
+
+
+        .card-title {
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+
+
+        @media all and (max-width: 768px) {
+            .card {
+                width: 95%;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-desc {
+                font-size: 16px;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fafafa;
+            min-height: 100px;
+        }
+
+        @keyframes logo-shake {
+            0% {
+                transform: translateY(1px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-1px);
+            }
+        }
+
+        img.logo {
+            margin-left: 50px;
+            animation-name: logo-shake;
+            animation-duration: .3s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            flex-grow: 1;
+        }
+
+        nav>ul>li {
+            padding: 15px;
+        }
+
+        a:hover {
+            color: rgb(208, 5, 26);
+            border-bottom: 1px solid rgb(208, 5, 26);
+            transform: translateX(5px);
+            transition: transform .1s linear;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:visited,
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="position-fixed-top-left-50px"></div>
+
+    <body style="background-color:#0c0c0c;">
+        <article style="padding-top:60px;">
+            <header style="width:800px; margin:0 auto;color:#ffffff;font-size: 42px">
+                <!-- 大標 -->
+                <h1>Basketball Stars of Asia </h1>
+                <p style="font-size: 28px">說到籃球，很多人首先想到的是NBA，卻不知道亞洲也有一群厲害的籃球明星，
+                    他們雖然沒有林書豪有名，卻有著不輸NBA的實力，也是球壇未來的明日之星，讓我們一起用亞洲籃球投出世界的舞台！</p>
+            </header>
+        </article>
+
+        <div class="related-block ">
+            <div class="related-text "></div>
+            <div class="card-flex-box ">
+                <!-- 九圖3*3並排 -->
+
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="伊朗(首) 修.png" width="100%"></img>
+                    </figure>
+
+                    <h2 class="card-title"><img src="伊朗1.png" width="40px">&nbsp;伊朗—哈達迪</h2>
+
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="巴勒斯坦(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="巴勒斯坦1.jpg" width="40px">&nbsp;巴勒斯坦—桑尼</h2>
+                    <p class="card-desc"></p>
+                </div>
+
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="韓國(首文) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="韓國1.png" width="40px">&nbsp;韓國—金善亨</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="台灣 林志傑(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="台灣1.png" width="40px">&nbsp;台灣—林志傑</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="菲律賓(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="菲律賓1.png" width="40px">&nbsp;菲律賓—羅密歐</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="黎巴嫩(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="黎巴嫩1.png" width="45px">&nbsp;黎巴嫩—法迪</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="中國 易建聯(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="伊朗1.png" width="45px">&nbsp;中國—易建聯</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="日本2(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="日本1.jpg" width="40px">&nbsp;日本—八村壘</h2>
+                    <p class="card-desc"></p>
+                </div>
+                <!-- flex item -->
+                <div class="card">
+                    <figure class="card-img">
+                        <img src="日本1(首) 修.png" width="100%"></img>
+                    </figure>
+                    <h2 class="card-title"><img src="日本1.jpg" width="40px">&nbsp;日本—渡邊雄太</h2>
+                    <p class="card-desc"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div
+                style="display: flex; position: relative; flex-direction: column; margin-top:6.18vw; margin-left: 2.94vw">
+                <div
+                    style=" position:relative; display: flex; align-items: center; justify-content: flex-start;width: 40vw; margin:0 ">
+                    <img src="LOGO.png" style="width: 6.11vw; height:6.11vw">
+                    <span style="margin-left: 1.59vw;
+                    color: white;
+                    font-size: 2.77vw;
+                    line-height: 3.47vw; ">
+                        亞洲籃球明星球員<br>
+                        Basketball Stars of Asia
+                    </span>
+                </div>
+                <span style="max-width: 43.81vw; text-align: justify;
+                font-size: 2.08vw;
+                line-height: 3.47vw;
+                margin-top: 2.36vw;
+                margin-bottom:7.56vw;
+                color: #C4C4C4 ">
+                    <p>我們是五個來自傳播學院的22歲大學生，希望透過這個網頁，讓更多人看見亞洲籃球明星球員的光芒！</p>
+                </span>
+            </div>
+            <div class="grey-bar">
+            </div>
+            <div style="display: flex; position: relative; flex-direction: column; margin-top:6.18vw;">
+                <div style="margin-left: 9.79vw;
+                color: white;
+                font-size: 2.77vw;
+                line-height: 3.47vw; ">
+                    關於我們
+                </div>
+
+                <span style="font-size: 1.73vw;
+                line-height: 3,46vw;
+                color: #C4C4C4;
+                margin-top: 2.56vw;
+                margin-left: 20vw">
+                    Copyright © 2019 BSA
+                </span>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
